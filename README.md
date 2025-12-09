@@ -107,6 +107,8 @@ Visit: http://localhost:5173
 npm run build
 npm run preview
 
+---
+
 ###🛣️ Roadmap
 Drag-and-drop SVG canvas
 Export as PNG / WEBP
@@ -114,16 +116,22 @@ ZIP export
 Shape presets library
 Chrome extension
 
+---
+
 ###✅ Powered by Google AI Studio
 
 All Gemini API calls run directly client-side inside the browser using Google AI Studio.
 No backend server is required — secure, fast, and lightweight.
+
+---
 
 ###👨‍💻 Author
 
 ## seeb4coding.in
 📧 support@seeb4coding.in
 🌐 https://seeb4coding.in/
+
+---
 
 ###⭐ Support
 If you find this project helpful, please star the repo to support future updates!
