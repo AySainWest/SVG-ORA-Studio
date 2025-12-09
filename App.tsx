@@ -22,7 +22,7 @@ const generateUUID = (): string => {
 
 const DEFAULT_CONFIG: ModelConfig = {
   provider: 'google',
-  model: 'gemini-3.0-pro', // Default standard model
+  model: 'gemini-2.0-flash', // Updated to a more standard/available default
   apiKey: ''
 };
 
@@ -49,6 +49,18 @@ const App: React.FC = () => {
       setSidebarVisible(true); // Show sidebar initially on mobile to start creation
     }
   }, []);
+
+  // Auto-dismiss error toast after 3 seconds
+  useEffect(() => {
+    if (status === GenerationStatus.ERROR && error) {
+      const timer = setTimeout(() => {
+        setError(null);
+        // Return to previous valid state or idle
+        setStatus(currentSvg ? GenerationStatus.SUCCESS : GenerationStatus.IDLE);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [status, error, currentSvg]);
 
   const handleGenerate = async (options: GenerationOptions) => {
     setStatus(GenerationStatus.LOADING);
@@ -88,8 +100,7 @@ const App: React.FC = () => {
         message: "Generation Failed",
         details: err.message || "An unexpected error occurred."
       });
-      // Re-open sidebar on error if on mobile so they can try again? 
-      // Maybe leave it closed so they see the error, but they need to open it to retry.
+      // Sidebar stays closed so user sees the error toast
     }
   };
 
@@ -119,7 +130,6 @@ const App: React.FC = () => {
         message: "Refinement Failed",
         details: err.message || "Could not refine the SVG."
       });
-      setStatus(GenerationStatus.SUCCESS); 
     }
   };
 
@@ -168,27 +178,28 @@ const App: React.FC = () => {
         {/* Sidebar Toggle */}
         <button 
           onClick={() => setSidebarVisible(!sidebarVisible)}
-          className={`absolute top-4 left-4 z-40 p-2 bg-zinc-900/80 backdrop-blur border border-white/10 rounded-lg text-zinc-400 hover:text-white shadow-lg hover:bg-zinc-800 transition-colors ${sidebarVisible ? 'md:hidden' : 'flex'}`} // Hide toggle on desktop when sidebar is open (sidebar has its own controls usually, or we keep it. Design choice: Hide on mobile when sidebar open to prevent overlap, show when closed)
+          className={`absolute top-4 left-4 z-40 p-2 bg-zinc-900/80 backdrop-blur border border-white/10 rounded-lg text-zinc-400 hover:text-white shadow-lg hover:bg-zinc-800 transition-colors ${sidebarVisible ? 'md:hidden' : 'flex'}`}
           title={sidebarVisible ? "Hide Sidebar" : "Show Sidebar"}
         >
           {sidebarVisible ? <PanelLeftClose className="w-5 h-5" /> : <PanelLeftOpen className="w-5 h-5" />}
         </button>
 
         <div className="flex-1 overflow-hidden relative flex flex-col">
+            {/* Error Toast */}
             {status === GenerationStatus.ERROR && error && (
-                <div className="absolute top-16 left-1/2 -translate-x-1/2 z-50 w-[90%] md:w-full max-w-lg px-0 animate-in fade-in slide-in-from-top-4">
-                  <div className="bg-zinc-900 border border-red-500/30 rounded-xl p-4 flex items-start gap-3 shadow-2xl shadow-red-900/10">
+                <div className="absolute top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] md:w-auto min-w-[300px] max-w-lg animate-in fade-in slide-in-from-top-4 duration-300">
+                  <div className="bg-zinc-900/95 backdrop-blur-md border border-red-500/30 rounded-xl p-4 flex items-start gap-3 shadow-2xl shadow-red-900/20 ring-1 ring-red-500/20">
                       <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
                       <div>
-                      <h4 className="font-semibold text-red-400 text-sm">{error.message}</h4>
-                      <p className="text-xs text-zinc-400 mt-1">{error.details}</p>
+                        <h4 className="font-semibold text-red-200 text-sm">{error.message}</h4>
+                        <p className="text-xs text-red-300/70 mt-1 leading-relaxed">{error.details}</p>
                       </div>
                   </div>
                 </div>
             )}
 
             {/* Render Preview if Success OR if Loading but we have a current SVG (Refining) */}
-            {(status === GenerationStatus.SUCCESS || (status === GenerationStatus.LOADING && currentSvg)) && currentSvg ? (
+            {(status === GenerationStatus.SUCCESS || (status === GenerationStatus.LOADING && currentSvg) || (status === GenerationStatus.ERROR && currentSvg)) && currentSvg ? (
                 <SvgPreview 
                     data={currentSvg} 
                     onRefine={handleRefine}
@@ -210,8 +221,8 @@ const App: React.FC = () => {
                     </div>
                 </div>
             ) : (
-                // Empty State
-                status === GenerationStatus.IDLE && (
+                // Empty State (Show this when IDLE or ERROR without content)
+                (status === GenerationStatus.IDLE || (status === GenerationStatus.ERROR && !currentSvg)) && (
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-zinc-600 select-none bg-zinc-950 bg-[radial-gradient(#27272a_1px,transparent_1px)] [background-size:16px_16px] p-6">
                     <div className="w-24 h-24 md:w-32 md:h-32 rounded-3xl bg-zinc-900 border border-white/5 flex items-center justify-center mb-6 shadow-2xl shadow-black">
                          <div className="w-12 h-12 md:w-16 md:h-16 rounded border-2 border-dashed border-zinc-700 flex items-center justify-center">

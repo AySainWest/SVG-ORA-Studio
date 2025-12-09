@@ -294,7 +294,6 @@ export const InputSection: React.FC<InputSectionProps> = ({
                                          ))}
                                          <option value="custom">Custom...</option>
                                      </select>
-                                     {/* Allow custom text input if not in list or just always allow override */}
                                      {!OPENROUTER_MODELS.find(m => m.id === tempConfig.model) && (
                                          <input 
                                             type="text"
@@ -310,17 +309,34 @@ export const InputSection: React.FC<InputSectionProps> = ({
 
                         {/* Google Config */}
                         {tempConfig.provider === 'google' && (
-                            <div className="space-y-2 animate-in slide-in-from-top-2">
-                                <label className="text-[10px] uppercase font-bold text-zinc-500">Model</label>
-                                <select 
-                                    value={tempConfig.model}
-                                    onChange={(e) => setTempConfig({...tempConfig, model: e.target.value})}
-                                    className="w-full bg-zinc-950 border border-white/10 rounded-lg px-2 py-2 text-xs text-white focus:border-indigo-500 outline-none"
-                                >
-                                    <option value="gemini-3-pro-preview">Gemini 3.0 Pro</option>
-                                    <option value="gemini-2.5-pro">Gemini 2.5 Pro</option>
-                                    <option value="gemini-2.0-flash">Gemini 2.0 Flash</option>
-                                </select>
+                            <div className="space-y-4 animate-in slide-in-from-top-2">
+                                <div className="space-y-2">
+                                    <label className="text-[10px] uppercase font-bold text-zinc-500">API Key (Optional)</label>
+                                    <div className="relative">
+                                        <input 
+                                            type="password"
+                                            value={tempConfig.apiKey || ''}
+                                            onChange={(e) => setTempConfig({...tempConfig, apiKey: e.target.value})}
+                                            placeholder="Use system default"
+                                            className="w-full bg-zinc-950 border border-white/10 rounded-lg pl-9 pr-3 py-2 text-xs text-white focus:border-indigo-500 outline-none placeholder:text-zinc-700"
+                                        />
+                                        <Key className="w-3.5 h-3.5 text-zinc-500 absolute left-3 top-2.5" />
+                                    </div>
+                                    <p className="text-[10px] text-zinc-600">Enter a key to override the default.</p>
+                                </div>
+
+                                <div className="space-y-2">
+                                    <label className="text-[10px] uppercase font-bold text-zinc-500">Model</label>
+                                    <select 
+                                        value={tempConfig.model}
+                                        onChange={(e) => setTempConfig({...tempConfig, model: e.target.value})}
+                                        className="w-full bg-zinc-950 border border-white/10 rounded-lg px-2 py-2 text-xs text-white focus:border-indigo-500 outline-none"
+                                    >
+                                        <option value="gemini-3-pro-preview">Gemini 3.0 Pro</option>
+                                        <option value="gemini-2.5-pro">Gemini 2.5 Pro</option>
+                                        <option value="gemini-2.0-flash">Gemini 2.0 Flash</option>
+                                    </select>
+                                </div>
                             </div>
                         )}
                         

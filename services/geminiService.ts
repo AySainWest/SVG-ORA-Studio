@@ -7,9 +7,13 @@
 import { GoogleGenAI } from "@google/genai";
 import { GenerationOptions, ModelConfig } from "../types";
 
-// Initialize the Google client
-// CRITICAL: We use process.env.API_KEY as per strict guidelines.
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Helper to get the GoogleGenAI client
+const getClient = (config: ModelConfig) => {
+    // If a custom API key is provided in config, use it.
+    // Otherwise, fall back to process.env.API_KEY.
+    const apiKey = config.apiKey || process.env.API_KEY;
+    return new GoogleGenAI({ apiKey });
+};
 
 // System Instructions - Shared between providers
 const getSystemPrompt = (options: GenerationOptions) => `
@@ -96,6 +100,7 @@ export const generateSvgFromPrompt = async (options: GenerationOptions): Promise
 
   // Default: Google Gemini SDK
   try {
+    const ai = getClient(modelConfig);
     const response = await ai.models.generateContent({
       model: modelConfig.model || 'gemini-3-pro-preview',
       contents: fullPrompt,
@@ -157,6 +162,7 @@ export const generateSvgFromImage = async (options: GenerationOptions): Promise<
 
   // Google Gemini SDK Handling
   try {
+    const ai = getClient(modelConfig);
     // Remove data URL prefix if present (e.g., "data:image/png;base64,")
     const base64Data = image.split(',')[1] || image;
     const mimeType = image.match(/data:([^;]+);/)?.[1] || 'image/png';
@@ -224,6 +230,7 @@ export const refineSvg = async (
   }
 
   try {
+    const ai = getClient(modelConfig);
     const response = await ai.models.generateContent({
       model: modelConfig.model || 'gemini-3-pro-preview',
       contents: fullPrompt,
